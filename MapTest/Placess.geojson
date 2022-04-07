@@ -1,0 +1,81 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Казанская пл. 2",
+                "discipline": "Cafedral",
+                "title": "Казанский собор"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinate": [
+                30.324495,
+                59.934257
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Футбольная аллея, 1",
+                "discipline": "Sports",
+                "title": "Зенит Арена"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinate": [
+                59.973017,
+                30.220557
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Приморский проспект 91",
+                "discipline": "temple",
+                "title": "Дацан"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinate": [
+                59.983568,
+                30.256028
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Исаакиевская площадь 4",
+                "discipline": "Cafedral",
+                "title": "Исакиевский собор"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinate": [
+                59.934137,
+                30.306233
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Петровский остров 2",
+                "discipline": "Sports",
+                "title": "Стадион Петровский"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinate": [
+                59.952281,
+                30.285514
+                ]
+            }
+        }
+        
+    ]
+}
