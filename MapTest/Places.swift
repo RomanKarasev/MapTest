@@ -63,4 +63,38 @@ class Places: NSObject, MKAnnotation {
         mapItem.name = title
         return mapItem
     }
+    
+    var markerTintColor: UIColor {
+        switch discipline {
+        case "Cafedral":
+            return .red
+        case "Sport":
+            return .green
+        case "Temple":
+            return .blue
+        case "Park":
+            return .cyan
+        default:
+            return .darkGray
+        }
+    }
+    
+    var image: UIImage {
+        guard let name = discipline else {
+            return #imageLiteral(resourceName: "Plaque")
+        }
+        switch name {
+        case "Cafedral":
+            return #imageLiteral(resourceName: "Sculpture")
+        case "Sport":
+            return #imageLiteral(resourceName: "Flag")
+        case "Temple":
+            return #imageLiteral(resourceName: "Monument")
+        case "Park":
+            return #imageLiteral(resourceName: "Map")
+        default:
+            return #imageLiteral(resourceName: "Plaque")
+        }
+        
+    }
 }

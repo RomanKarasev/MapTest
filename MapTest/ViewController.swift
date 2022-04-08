@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
-        
         let initialLocation = CLLocation(latitude: 59.929691, longitude: 30.362239)
         mapView.centerLocation(initialLocation)
         
@@ -35,12 +33,10 @@ class ViewController: UIViewController {
         let zoomRage = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000)
         mapView.setCameraZoomRange(zoomRage, animated: true)
         
-        let KC = Places(title: "Казанский собор",
-                        locationName: "Казанская пл. 2",
-                        discipline: "Cathedral",
-                        coordinate: CLLocationCoordinate2D(latitude: 59.934257, longitude: 30.324495))
-
-        mapView.addAnnotation(KC)
+        mapView.delegate = self
+        
+//        mapView.register(PlacesMarkersView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(PlacesView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         loadInitialData()
         mapView.addAnnotations(places)
@@ -82,26 +78,6 @@ extension MKMapView {
 }
 
 extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        guard let annotation = annotation as? Places else {
-            return nil
-        }
-        
-        let identifier = "places"
-        let view: MKMarkerAnnotationView
-        
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: "places") as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        } else {
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        return view
-    }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let places = view.annotation as? Places else {
